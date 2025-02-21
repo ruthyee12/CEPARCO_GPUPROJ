@@ -56,19 +56,21 @@ This project implements and benchmarks 1D convolution computation on a single in
 -  <img src="screenshots/5CUDASTREAMMEMCPYALL.png">
 
 ## Comparison and Speedup
-Speedup is computed as (2)/(X). Includes data transfer times. 
+Speedup is computed as (2)/(X). Includes data transfer times. (X) refers to the Project Structure section of this document. 
 - Speedup (2)/(3) : 1.04
 - Speedup (2)/(4) : 0.99
 - Speedup (2)/(5) : 0.07
 
-(2) = 335.86 ms + 89.1 ms + 79.91 ms = 504.87 ms
-(3) = 317.57 ms + 88.96 ms + 79.97 ms = 486.5 ms
-(4) = 338.47 ms + 87.63 ms + 81.95 ms = 508.05 ms 
-(5) = 330.48 ms + 3582 ms + 3559 ms = 7471.48 ms
+- (2) = 335.86 ms + 89.1 ms + 79.91 ms = 504.87 ms
+- (3) = 317.57 ms + 88.96 ms + 79.97 ms = 486.5 ms
+- (4) = 338.47 ms + 87.63 ms + 81.95 ms = 508.05 ms 
+- (5) = 330.48 ms + 3582 ms + 3559 ms = 7471.48 ms
 
 ## Results and Analysis
 
+As we can see from the results and speedup computations, all the implementations have more or less the same times except for (5). Streams are like queues of processes and the best way to use them is to allocate memory that is unique to that stream. Similar to pipelining, each stream can execute processes concurrently if each stream uses different resources at a certain point in time. That means that if you allocate memory for a specific stream's use, the CPU or other streams should not be able to access to achieve concurrency. However, due to 1D convolution needing in[i+1] and in[i+2], the problem of 1D convolution makes it inherently improbable to use with streams. Hence why all the stream implementations behave similarly to the benchmark CUDA. 
 
+As for (5), that demonstrates how streams should look like. During the
 
 
 
