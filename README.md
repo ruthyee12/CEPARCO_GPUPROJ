@@ -26,8 +26,11 @@ This project implements and benchmarks 1D convolution computation on a single in
 
 ## Screenshots of the Program Output with Execution Time
 
-### C Program 
+- C Program 
 <img src="screenshots/c_result.png">
+
+- Cuda Program
+<img src="screenshots/cuda_result.png">
 
 ![screenshot](Screenshots/debugtest.png)
 
