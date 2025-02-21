@@ -24,6 +24,11 @@ This project implements and benchmarks 1D convolution computation on a single in
 - Compared against the C implementation
 ## (5) CUDA with streams and memcpy for each loope (no prefetching, mem advise, or unified memory)
 
+## Screenshots of the Program Output with Execution Time
+
+### C Program 
+<img src="screenshots/c_result.png">
+
 ![screenshot](Screenshots/debugtest.png)
 
 <sub>Figure 1: Screenshot of execution times n = 2^20 (Debug)</sub>
