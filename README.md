@@ -24,45 +24,20 @@ This project implements and benchmarks 1D convolution computation on a single in
 - Compared against the C implementation
 ## (5) CUDA with streams and memcpy for each loope (no prefetching, mem advise, or unified memory)
 
-## Screenshots of the Program Output with Execution Time
+## Screenshots of the Program Output with Execution Time and Correctness Check
 
-- C Program 
+- C Execution Time
 <img src="screenshots/c_result.png">
 
-- Cuda Program
+- CUDA Execution Time
 <img src="screenshots/cuda_result.png">
 
-![screenshot](Screenshots/debugtest.png)
+- C Correctness Check
+<img src="screenshots/c_checking.png">
 
-<sub>Figure 1: Screenshot of execution times n = 2^20 (Debug)</sub>
+- CUDA Correctness Check
+<img src="screenshots/cuda_checking.png">
 
-![screenshot](Screenshots/releasetest.png)
-
-<sub>Figure 2: Screenshot of execution times n = 2^20 (Release)</sub>
-
-![screenshot](Screenshots/debugn26.png)
-
-<sub>Figure 3: Screenshot of execution times n = 2^26 (Debug)</sub>
-
-![screenshot](Screenshots/releasen26.png)
-
-<sub>Figure 4: Screenshot of execution times n = 2^26 (Release)</sub>
-
-![screenshot](Screenshots/debugn28.png)
-
-<sub>Figure 5: Screenshot of execution times n = 2^28 (Debug)</sub>
-
-![screenshot](Screenshots/releasen28.png)
-
-<sub>Figure 6: Screenshot of execution times n = 2^28 (Release)</sub>
-
-![screenshot](Screenshots/debugn6.png)
-
-<sub>Figure 7: Screenshot of execution times n = 6 (Debug)</sub>
-
-![screenshot](Screenshots/debugn6.png)
-
-<sub>Figure 8: Screenshot of execution times n = 6 (Release)</sub>
 ## Results and Analysis
 ![screenshot](Screenshots/tablen1.png)
 ![screenshot](Screenshots/tablen22.png)
