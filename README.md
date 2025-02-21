@@ -3,6 +3,10 @@
 ## Overview
 This project implements and benchmarks 1D convolution computation on a single input signal (array) using: C, CUDA. The execution time of each implementation is recorded and analyzed for performance comparison.
 
+## Colab Link
+
+## Video Recording
+
 ## Project Structure
 ### (1) C Program 
 - Contains the C implementation of the 1D convolution computation
