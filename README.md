@@ -44,16 +44,16 @@ This project implements and benchmarks 1D convolution computation on a single in
 ## Screenshots of the Timeline Viewed through NVIDIA Nsight Systems
 
 -  Figure 6: Timeline of Baseline CUDA
--  <img src="screenshots/2CUDABENCHMARK.png">
+<img src="screenshots/2CUDABENCHMARK.png">
 
 -  Figure 7: Timeline of (3)
--  <img src="screenshots/3CUDASTANDARD.png">
+<img src="screenshots/3CUDASTANDARD.png">
 
 -  Figure 8: Timeline of (4)
--  <img src="screenshots/4CUDASTREAMBEFOREAFTER.png">
+<img src="screenshots/4CUDASTREAMBEFOREAFTER.png">
 
 -  Figure 9: Timeline of (5)
--  <img src="screenshots/5CUDASTREAMMEMCPYALL.png">
+<img src="screenshots/5CUDASTREAMMEMCPYALL.png">
 
 ## Comparison and Speedup
 Speedup is computed as (2)/(X). Includes data transfer times. (X) refers to the Project Structure section of this document. 
