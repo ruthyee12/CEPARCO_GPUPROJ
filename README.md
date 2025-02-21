@@ -7,7 +7,7 @@ This project implements and benchmarks 1D convolution computation on a single in
 - https://colab.research.google.com/drive/1cr4kM2cROON08fjmTapcvzKTbSEsDspZ?usp=sharing
 
 ## Video Recording
-- 
+- https://youtu.be/NN1YodaS77A
 
 ## Project Structure
 ### (1) C Program 
