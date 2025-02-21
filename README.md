@@ -15,16 +15,14 @@ This project implements and benchmarks 1D convolution computation on a single in
 - Used as a reference for correct output
 ### (2) CUDA (with prefetching, mem advse, and unified memory)
 - Standard CUDA implementation 
-- Since this was already proven to be
+- Since this was already proven to be faster than C, this will be used as the benchmark
 ### (3) CUDA with streams (with prefetching, mem adivse, and unified memory)
-- Contains the XMM implementation of the dot product computation
-- Compared against the C implementation
+- Each kernel call of 1dconvolution function is divided into 4 streams
+- Data is prefetched before and after
 ### (4) CUDA with streams and memcpy (no prefetching, mem advise, or unified memory)
-- Contains the YMM implementation of the dot product computation
-- Compared against the C implementation
+- Data was memcpy'd once from host to device before the kernel calls and once after device to host
 ### (5) CUDA with streams and memcpy for each loope (no prefetching, mem advise, or unified memory)
--
--
+- Memcpy from host to device was done before every kernel call while device to host was done after every kernel
 
 ## Screenshots of the Program Output with Execution Time and Correctness Check
 
@@ -42,6 +40,20 @@ This project implements and benchmarks 1D convolution computation on a single in
 
 -  Figure 5: Screenshot of CUDA (with streams and memcpy for each loope) Output with Execution Time and Correctness Check
 <img src="screenshots/cudamemcpys_result.png">
+
+## Screenshots of the Timeline Viewed through NVIDIA Nsight Systems
+
+-  Figure 6: Timeline of Baseline CUDA
+-  <img src="screenshots/2CUDABENCHMARK.png">
+
+-  Figure 7: Timeline of (3)
+-  <img src="screenshots/3CUDASTANDARD.png">
+
+-  Figure 8: Timeline of (4)
+-  <img src="screenshots/4CUDASTREAMBEFOREAFTER.png">
+
+-  Figure 9: Timeline of (5)
+-  <img src="screenshots/5CUDASTREAMMEMCPYALL.png">
 
 ## Comparative Table of Execution Time
 
