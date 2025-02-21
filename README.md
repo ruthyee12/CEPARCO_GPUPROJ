@@ -23,22 +23,25 @@ This project implements and benchmarks 1D convolution computation on a single in
 - Contains the YMM implementation of the dot product computation
 - Compared against the C implementation
 ### (5) CUDA with streams and memcpy for each loope (no prefetching, mem advise, or unified memory)
+-
+-
 
-## Screenshots of the Program Output with Execution Time 
+## Screenshots of the Program Output with Execution Time and Correctness Check
 
-- C Execution Time
+- Figure 1: Screenshot of C Output with Execution Time and Correctness Check
 <img src="screenshots/c_result.png">
 
-- CUDA Execution Time
+-  Figure 2: Screenshot of CUDA Output with Execution Time and Correctness Check
 <img src="screenshots/cuda_result.png">
 
-## Screenshots of the Program Output with Execution Time 
+-  Figure 3: Screenshot of CUDA (with streams) Output with Execution Time and Correctness Check
+<img src="screenshots/cudastreams_result.png">
 
-- C Correctness Check
-<img src="screenshots/c_checking.png">
+-  Figure 4: Screenshot of CUDA (with streams and memcpy) Output with Execution Time and Correctness Check
+<img src="screenshots/cudamemcpy_result.png">
 
-- CUDA Correctness Check
-<img src="screenshots/cuda_checking.png">
+-  Figure 5: Screenshot of CUDA (with streams and memcpy for each loope) Output with Execution Time and Correctness Check
+<img src="screenshots/cudamemcpys_result.png">
 
 ## Comparative Table of Execution Time
 
