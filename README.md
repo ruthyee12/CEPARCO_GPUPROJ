@@ -36,7 +36,7 @@ This project implements and benchmarks 1D convolution computation on a single in
 <img src="screenshots/cudastreams_result.png">
 
 -  Figure 4: Screenshot of CUDA (with streams and memcpy) Output with Execution Time and Correctness Check
-<img src="screenshots/cudamemcpy_result.png">
+<img src="screenshots/4RESULTS.png">
 
 -  Figure 5: Screenshot of CUDA (with streams and memcpy for each loope) Output with Execution Time and Correctness Check
 <img src="screenshots/cudamemcpys_result.png">
@@ -55,40 +55,21 @@ This project implements and benchmarks 1D convolution computation on a single in
 -  Figure 9: Timeline of (5)
 -  <img src="screenshots/5CUDASTREAMMEMCPYALL.png">
 
-## Comparative Table of Execution Time
+## Comparison and Speedup
+Speedup is computed as (2)/(X). Includes data transfer times. 
+- Speedup (2)/(3) : 1.04
+- Speedup (2)/(4) : 0.99
+- Speedup (2)/(5) : 0.07
 
+(2) = 335.86 ms + 89.1 ms + 79.91 ms = 504.87 ms
+(3) = 317.57 ms + 88.96 ms + 79.97 ms = 486.5 ms
+(4) = 338.47 ms + 87.63 ms + 81.95 ms = 508.05 ms 
+(5) = 330.48 ms + 3582 ms + 3559 ms = 7471.48 ms
 
 ## Results and Analysis
 
 
 
-
-![screenshot](Screenshots/tablen1.png)
-![screenshot](Screenshots/tablen22.png)
-
-<sub>Figure 9: Table of execution comparison for all cases</sub>
-
-We run each test case in both release and debug versions in order to gain a clearer picture of the performance improvements across the different kernels. 
-We were not able to run n^30 as a test case due to computer hardware limitations, n^28 was used as a substitute.
-### Performance Breakdown
-#### C
-As expected, C is among the slowest, especially in debug mode, since the way the function is implemented is sequential, meaning that each element is computed one at a time. Creating a program or a function in C is easier compared to the next kernels but the performance will not be as optimized due to the lack of explicit parallelism. Release mode, however, tends to be faster than x86. This may be due to release mode being incredibly optimized for C. 
-
-#### x86
-x86 is a bit slower than C in release version due to the function not being optimized enough. Creating a well-optimized x86 assembly program is way more difficult than C but with proper knowledge it should be able to run a bit faster. x86 assembly still uses the same scalar or sequential operations as C which is why not all implementations are faster than the baseline.
-
-#### XMM 
-The use of XMM SIMD results in a major performance improvement over scalar C and x86 assembly. This is because XMM registers are able to perform parallel execution, allowing two 64-bit floating-point (double precision) values or four 32-bit floating-point values to be processed simultaneously in a single instruction. In this case, we are able to compute two 64-bit FP values at a time which results in the performance improvement over C and x86.
-
-#### YMM
-The fastest implementation in the comparison is YMM SIMD, which extends the SIMD registers to 256 bits. This enables each instruction to process four 64-bit floating-point numbers or eight 32-bit floating-point numbers at once, doubling the throughput of XMM SIMD. This is naturally the best implementation in terms of parallel computing among these kernels because of it being able to compute four 64-bit values at a time compared to XMM's two. 
- 
-### Implementation of Correctness Check
-![screenshot](Screenshots/CorrectnessOutput.png)
-
-<sub>Figure 3: Screenshot of correctness check</sub>
-
-The results of the C function were used as a baseline in order to verify the correctness of each kernel. Each of the outputs of each kernel are stored in a double variable in the program as: ```result_c```, ```result_asm```, ```result_xmm```, and ```result_ymm```. The comparison is done with the function: ``` if (fabs(result_c - result_x) < 1e-6) ``` . Since C is assumed as the correct output, by subtracting the result of c to the result of the other kernels and taking the absolute value with a tolerance of ```1e-6``` . The correctness outputs of all test cases may be found in the first section of screenshots.
 
 
 ## Conclusion and Discussion
